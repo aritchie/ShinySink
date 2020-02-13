@@ -4,13 +4,16 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ShinySink.MainPage">
+             x:Class="ShinySink.MainPage"
+             Title="Shiny Sink">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Button Text="{Binding JobPermissionText, StringFormat='Job Permissions: {0}'}"
+                        Command="{Binding JobPermissions}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 
 </ContentPage>

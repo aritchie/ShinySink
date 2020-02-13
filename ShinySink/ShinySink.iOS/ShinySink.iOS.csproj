@@ -124,11 +124,14 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Prism.DryIoc.Extensions">
+      <Version>7.2.0.898</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\ShinySink\ShinySink.csproj">
-      <Project>{83C48A71-AF40-436F-BB25-13AD3CB12A54}</Project>
+      <Project>{4F0A028C-D22F-43BF-93C2-5CF59D8359EF}</Project>
       <Name>ShinySink</Name>
     </ProjectReference>
   </ItemGroup>

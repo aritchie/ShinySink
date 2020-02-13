@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Shiny;
-
+using Shiny.Prism;
 
 namespace ShinySink
 {
-    public class ShinySinkStartup : ShinyStartup
+    public class ShinySinkStartup : PrismStartup
     {
-        public override void ConfigureServices(IServiceCollection services)
+        protected override void ConfigureServices(IServiceCollection services)
         {
         }
     }

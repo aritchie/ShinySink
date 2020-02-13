@@ -15,7 +15,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -61,6 +60,9 @@
     <PackageReference Include="Xamarin.GooglePlayServices.Base" Version="71.1610.0" />
     <PackageReference Include="Xamarin.GooglePlayServices.Basement" Version="71.1620.0" />
     <PackageReference Include="Xamarin.GooglePlayServices.Tasks" Version="71.1601.0" />
+    <PackageReference Include="Prism.DryIoc.Extensions">
+      <Version>7.2.0.898</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -96,7 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ShinySink\ShinySink.csproj">
-      <Project>{83C48A71-AF40-436F-BB25-13AD3CB12A54}</Project>
+      <Project>{4F0A028C-D22F-43BF-93C2-5CF59D8359EF}</Project>
       <Name>ShinySink</Name>
     </ProjectReference>
   </ItemGroup>

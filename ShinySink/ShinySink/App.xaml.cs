@@ -2,16 +2,14 @@
 using Prism.Ioc;
 using Prism.Mvvm;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 
 namespace ShinySink
 {
-    public partial class App
+    public partial class App : Prism.PrismApplication
     {
-        public App()
-        {
-        }
-
-
         protected override async void OnInitialized()
         {
             this.InitializeComponent();

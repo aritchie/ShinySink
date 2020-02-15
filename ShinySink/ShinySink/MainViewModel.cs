@@ -10,11 +10,13 @@ namespace ShinySink
     public class MainViewModel : ViewModel
     {
         readonly IJobManager jobs;
+        readonly AppSettings appSettings;
 
 
-        public MainViewModel(IJobManager jobs)
+        public MainViewModel(IJobManager jobs, AppSettings appSettings)
         {
             this.jobs = jobs;
+            this.appSettings = appSettings;
 
             this.JobPermissions = ReactiveCommand.CreateFromTask(async () =>
             {
@@ -25,6 +27,12 @@ namespace ShinySink
 
 
         [Reactive] public string JobPermissionText { get; private set; } = "Unknown";
-        public ICommand JobPermissions { get; }
+        public bool FireHeyStupid
+        {
+            get => this.appSettings.FireHeyStupid;
+            set => this.appSettings.FireHeyStupid = value;
+        }
+
+        public ICommand JobPermissions { get; }        
     }
 }

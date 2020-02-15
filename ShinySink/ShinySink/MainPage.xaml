@@ -10,6 +10,9 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
+                <Label Text="Fire Hey Stupid?" />
+                <Switch IsToggled="{Binding FireHeyStupid}" />
+
                 <Button Text="{Binding JobPermissionText, StringFormat='Job Permissions: {0}'}"
                         Command="{Binding JobPermissions}" />
             </StackLayout>

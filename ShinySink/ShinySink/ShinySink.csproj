@@ -12,22 +12,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="ReactiveUI.Fody" Version="11.1.23" />
-        <PackageReference Include="Shiny.Beacons" Version="1.0.0.1300-beta" />
-        <PackageReference Include="Shiny.BluetoothLE" Version="1.0.0.1300-beta" />
-        <PackageReference Include="Shiny.Core" Version="1.0.0.1300" />
-        <PackageReference Include="Shiny.Integrations.AzureNotifications" Version="1.0.0.1300-beta" />
-        <PackageReference Include="Shiny.Locations" Version="1.0.0.1300" />
-        <PackageReference Include="Shiny.Logging.AppCenter" Version="1.0.0.1300" />
-        <PackageReference Include="Shiny.Net.Http" Version="1.0.0.1300" />
-        <PackageReference Include="Shiny.Notifications" Version="1.0.0.1300" />
-        <PackageReference Include="Shiny.Prism" Version="7.2.0.898" />
-        <PackageReference Include="Shiny.Push" Version="1.0.0.1300-beta" />
-        <PackageReference Include="Shiny.Sensors" Version="1.0.0.1300" />
-        <PackageReference Include="Shiny.SpeechRecognition" Version="1.0.0.1300" />
-        <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
-        <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
-        <PackageReference Include="Prism.DryIoc.Extensions" Version="7.2.0.898" />
+        <PackageReference Include="Shiny.Core" Version="1.1.0.1449" />
+        <PackageReference Include="Shiny.Locations" Version="1.1.0.1449" />
+        <PackageReference Include="Shiny.Notifications" Version="1.1.0.1449" />
+        <PackageReference Include="Xamarin.Forms" Version="4.5.0.356" />
+        <PackageReference Include="Xamarin.Essentials" Version="1.5.1" />
     </ItemGroup>
 
     <ItemGroup>

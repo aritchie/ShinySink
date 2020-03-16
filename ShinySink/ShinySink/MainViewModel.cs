@@ -1,38 +1,25 @@
 ﻿using System;
 using System.Windows.Input;
-using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
-using Shiny.Jobs;
+using Shiny;
+using Xamarin.Forms;
 
 
 namespace ShinySink
 {
     public class MainViewModel : ViewModel
     {
-        readonly IJobManager jobs;
-        readonly AppSettings appSettings;
 
-
-        public MainViewModel(IJobManager jobs, AppSettings appSettings)
+        public MainViewModel()
         {
-            this.jobs = jobs;
-            this.appSettings = appSettings;
-
-            this.JobPermissions = ReactiveCommand.CreateFromTask(async () =>
+            this.JobPermissions = new Command(async () =>
             {
-                var access = await this.jobs.RequestAccess();
+                var access = await ShinyJobManager.RequestAccess();
                 this.JobPermissionText = access.ToString();
             });
         }
 
 
-        [Reactive] public string JobPermissionText { get; private set; } = "Unknown";
-        public bool FireHeyStupid
-        {
-            get => this.appSettings.FireHeyStupid;
-            set => this.appSettings.FireHeyStupid = value;
-        }
-
+        public string JobPermissionText { get; private set; } = "Unknown";
         public ICommand JobPermissions { get; }        
     }
 }

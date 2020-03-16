@@ -1,39 +1,57 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using Microsoft.Extensions.DependencyInjection;
 using Shiny;
+using Shiny.Jobs;
+using Shiny.Locations;
 using Shiny.Notifications;
-using Shiny.Prism;
 using ShinySink.Delegates;
+
 
 namespace ShinySink
 {
-    public class ShinySinkStartup : PrismStartup
+    public class ShinySinkStartup : ShinyStartup
     {
-        protected override void ConfigureServices(IServiceCollection services)
+        public override void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IStupidService, StupidService>();
-            services.AddSingleton<AppSettings>();
+            services.RegisterJob(new JobInfo(typeof(MyJob))
+            {
+                RequiredInternetAccess = InternetAccess.Any,
+                Repeat = true,
+                DeviceCharging = false,
+                BatteryNotLow = true
+            });
+
+            services.UseGeofencing<MyGeofenceDelegate>(true);
 
             services.UseNotifications<MyNotificationDelegate>(
                 true,
-                null,
-                null,
-                new[] {
+                notificationCategories: new[] {
                     new NotificationCategory(
-                        "test",
+                        "cntower",
                         new NotificationAction(
-                            "yes",
-                            "Yes",
-                            NotificationActionType.None
+                            "message",
+                            "Leave A Message",
+                            NotificationActionType.TextReply
                         ),
                         new NotificationAction(
-                            "no",
-                            "No",
-                            NotificationActionType.TextReply
+                            "ticket",
+                            "Free Ticket!",
+                            NotificationActionType.None
                         )
                     )
                 }
             );
-            services.RegisterJob(new Shiny.Jobs.JobInfo(typeof(TestJob)));
+        }
+
+
+        public override void ConfigureApp(IServiceProvider services)
+        {
+            base.ConfigureApp(services);
+            services.Resolve<IGeofenceManager>().StartMonitoring(new GeofenceRegion(
+                "CNTower",
+                new Position(1, 1),
+                Distance.FromMeters(500)
+            ));
         }
     }
 }

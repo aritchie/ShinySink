@@ -7,13 +7,33 @@ namespace ShinySink.Delegates
 {
     public class MyNotificationDelegate : INotificationDelegate
     {
-        public Task OnEntry(NotificationResponse response)
+        readonly INotificationManager notificationManager;
+
+
+        public MyNotificationDelegate(INotificationManager notificationManager)
         {
-            return Task.CompletedTask;
+            this.notificationManager = notificationManager;
         }
+
+
+        public async Task OnEntry(NotificationResponse response)
+        {
+            // the user responded
+            switch (response.ActionIdentifier)
+            {
+                case "message":
+
+                    break;
+
+                case "ticket":
+                    break;
+            }
+        }
+
 
         public Task OnReceived(Notification notification)
         {
+            // the notification was received
             return Task.CompletedTask;
         }
     }

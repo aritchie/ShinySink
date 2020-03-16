@@ -1,8 +1,7 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Runtime;
 using Shiny;
-using System;
-
 
 namespace ShinySink.Droid
 {

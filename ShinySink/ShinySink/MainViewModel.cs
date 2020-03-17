@@ -8,7 +8,6 @@ namespace ShinySink
 {
     public class MainViewModel : ViewModel
     {
-
         public MainViewModel()
         {
             this.JobPermissions = new Command(async () =>
@@ -19,7 +18,13 @@ namespace ShinySink
         }
 
 
-        public string JobPermissionText { get; private set; } = "Unknown";
-        public ICommand JobPermissions { get; }        
+        public ICommand JobPermissions { get; }
+
+        string text = String.Empty;
+        public string JobPermissionText
+        {
+            get => this.text;
+            private set => this.Set(ref this.text, value);
+        }
     }
 }

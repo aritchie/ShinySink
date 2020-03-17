@@ -22,10 +22,11 @@ namespace ShinySink.Delegates
             switch (response.ActionIdentifier)
             {
                 case "message":
-
+                    await this.notificationManager.Send("CN Tower Message", $"Your message '{response.Text}' has been recorded!");
                     break;
 
                 case "ticket":
+                    await this.notificationManager.Send("CN Tower Ticket", "Check the app, you have a FREE ticket");
                     break;
             }
         }

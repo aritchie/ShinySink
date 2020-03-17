@@ -17,6 +17,7 @@
         <PackageReference Include="Shiny.Notifications" Version="1.1.0.1449" />
         <PackageReference Include="Xamarin.Forms" Version="4.5.0.356" />
         <PackageReference Include="Xamarin.Essentials" Version="1.5.1" />
+        <PackageReference Include="ReactiveUI" Version="11.2.3" />
     </ItemGroup>
 
     <ItemGroup>

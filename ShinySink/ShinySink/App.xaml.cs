@@ -12,6 +12,7 @@ namespace ShinySink
         public App()
         {
             this.InitializeComponent();
+            this.MainPage = new MainPage();
         }
     }
 }

@@ -13,13 +13,13 @@ namespace ShinySink
     {
         public override void ConfigureServices(IServiceCollection services)
         {
-            services.RegisterJob(new JobInfo(typeof(MyJob))
-            {
-                RequiredInternetAccess = InternetAccess.Any,
-                Repeat = true,
-                DeviceCharging = false,
-                BatteryNotLow = true
-            });
+            //services.RegisterJob(new JobInfo(typeof(MyJob))
+            //{
+            //    RequiredInternetAccess = InternetAccess.Any,
+            //    Repeat = true,
+            //    DeviceCharging = false,
+            //    BatteryNotLow = true
+            //});
 
             services.UseGeofencing<MyGeofenceDelegate>(true);
 
@@ -47,11 +47,12 @@ namespace ShinySink
         public override void ConfigureApp(IServiceProvider services)
         {
             base.ConfigureApp(services);
-            services.Resolve<IGeofenceManager>().StartMonitoring(new GeofenceRegion(
-                "CNTower",
-                new Position(1, 1),
-                Distance.FromMeters(500)
-            ));
+            //services.Resolve<IGeofenceManager>().StartMonitoring(new GeofenceRegion(
+            //    "CNTower",
+            //    new Position(            //        43.6425662,            //        -79.3892508
+            //    ),
+            //    Distance.FromMiles(1)
+            //));
         }
     }
 }

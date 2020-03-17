@@ -19,12 +19,21 @@ namespace ShinySink.Delegates
 
         public async Task OnStatusChanged(GeofenceState newStatus, GeofenceRegion region)
         {
-            await this.notificationManager.Send(new Notification
+            var notification = new Notification
             {
-                Title = "WELCOME to the CN Tower",
-                Message = "What would you like to do?",
-                Category = region.Identifier // cntower
-            });
+                Title = "WELCOME TO THE CN Tower",
+                Message = "What would you like to do",
+                Category = region.Identifier // cn tower
+            };
+
+            if (newStatus == GeofenceState.Exited)
+            {
+                notification.Title = "CN Tower says Good-bye!";
+                notification.Message = "BYE";
+                notification.Category = null;
+            }
+            
+            await this.notificationManager.Send(notification);
         }
     }
 }
